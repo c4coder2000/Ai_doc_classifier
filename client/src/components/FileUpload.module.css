@@ -1,0 +1,135 @@
+.uploadContainer {
+  width: 100%;
+}
+
+.uploadArea {
+  border: 2px dashed var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 3rem 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: var(--background-light);
+  position: relative;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.uploadArea:hover {
+  border-color: var(--primary-color);
+  background: #f0f7ff;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-booking);
+}
+
+.uploadArea.dragOver {
+  border-color: var(--primary-color);
+  background: #e6f4ff;
+  border-style: solid;
+  transform: scale(1.01);
+}
+
+.uploadArea.processing {
+  cursor: not-allowed;
+  opacity: 0.8;
+  background: var(--background-light);
+  border-color: var(--border-light);
+}
+
+.hiddenInput {
+  display: none;
+}
+
+.uploadContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.uploadIcon {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  animation: bounce 2s infinite;
+}
+
+.uploadText {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.uploadSubtext {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.browseText {
+  color: var(--primary-color);
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.supportedFormats {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  background: rgba(0, 53, 128, 0.08);
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius-sm);
+  border: 1px solid rgba(0, 53, 128, 0.15);
+}
+
+.spinner {
+  width: 3rem;
+  height: 3rem;
+  border: 3px solid var(--border-color);
+  border-top: 3px solid var(--primary-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .uploadArea {
+    padding: 2rem 1rem;
+    min-height: 160px;
+  }
+  
+  .uploadIcon {
+    font-size: 2.5rem;
+  }
+  
+  .uploadText {
+    font-size: 1.125rem;
+  }
+  
+  .uploadSubtext {
+    font-size: 0.9rem;
+  }
+}

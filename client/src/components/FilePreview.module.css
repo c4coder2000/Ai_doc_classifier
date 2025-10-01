@@ -1,0 +1,98 @@
+.previewGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem 0;
+}
+
+.previewCard {
+  background: var(--card-background);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 1rem;
+  box-shadow: var(--shadow-booking);
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.previewCard:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary-color);
+}
+
+.previewCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--primary-color);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.previewCard:hover::before {
+  opacity: 1;
+}
+
+.previewCard p {
+  margin: 0 0 1rem 0;
+  font-weight: 500;
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  word-break: break-word;
+  max-height: 2.5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.previewCard img {
+  border-radius: var(--border-radius-sm);
+  max-width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border: 1px solid var(--border-color);
+  transition: transform 0.3s ease;
+}
+
+.previewCard:hover img {
+  transform: scale(1.05);
+}
+
+/* File type indicator */
+.previewCard::after {
+  content: '📄';
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  font-size: 1.2rem;
+  opacity: 0.6;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .previewGrid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1rem;
+  }
+  
+  .previewCard {
+    padding: 0.75rem;
+  }
+  
+  .previewCard img {
+    height: 100px;
+  }
+  
+  .previewCard p {
+    font-size: 0.8rem;
+  }
+}

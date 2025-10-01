@@ -1,0 +1,247 @@
+.card {
+  background: var(--card-background);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-booking);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary-color);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 1.5rem 1.5rem 0;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+.fileName {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  word-break: break-word;
+  max-width: calc(100% - 2rem);
+}
+
+.fileIcon {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+
+.status {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.content {
+  padding: 0 1.5rem 1.5rem;
+}
+
+.labelSection {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.labelBadge {
+  background: var(--primary-color);
+  color: white;
+  padding: 0.4rem 0.875rem;
+  border-radius: var(--border-radius-sm);
+  font-weight: 500;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.confidenceBadge {
+  padding: 0.4rem 0.875rem;
+  border-radius: var(--border-radius-sm);
+  font-weight: 500;
+  font-size: 0.75rem;
+  border: 1px solid;
+  background: white;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.confidenceBadge.high {
+  border-color: var(--success-color);
+  color: var(--success-color);
+  background: rgba(72, 187, 120, 0.1);
+}
+
+.confidenceBadge.medium {
+  border-color: var(--warning-color);
+  color: var(--warning-color);
+  background: rgba(237, 137, 54, 0.1);
+}
+
+.confidenceBadge.low {
+  border-color: var(--error-color);
+  color: var(--error-color);
+  background: rgba(245, 101, 101, 0.1);
+}
+
+.confidenceBadge.unknown {
+  border-color: var(--text-secondary);
+  color: var(--text-secondary);
+  background: rgba(113, 128, 150, 0.1);
+}
+
+.summarySection {
+  margin-bottom: 1.5rem;
+}
+
+.sectionTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 0.75rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sectionTitle::before {
+  content: '';
+  width: 3px;
+  height: 1rem;
+  background: var(--primary-color);
+  border-radius: 2px;
+}
+
+.summaryText {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+  padding: 1rem;
+  background: var(--background-light);
+  border-radius: var(--border-radius-sm);
+  border-left: 3px solid var(--primary-color);
+  border: 1px solid var(--border-light);
+}
+
+.textSection {
+  margin-top: 1.5rem;
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.expandButton {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  padding: 0.25rem 0.75rem;
+  border-radius: 15px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.expandButton:hover {
+  background: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+.textContent {
+  position: relative;
+  overflow: hidden;
+}
+
+.textContent:not(.expanded) {
+  max-height: 120px;
+}
+
+.textContent:not(.expanded)::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: linear-gradient(transparent, var(--card-background));
+  pointer-events: none;
+}
+
+.textPreview {
+  background: #f8fafc;
+  padding: 1rem;
+  border-radius: var(--border-radius-sm);
+  border: 1px solid var(--border-color);
+  white-space: pre-wrap;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--text-primary);
+  margin: 0;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  overflow-x: auto;
+}
+
+.textContent.expanded .textPreview {
+  max-height: none;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .header {
+    padding: 1rem 1rem 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .fileName {
+    font-size: 1rem;
+  }
+  
+  .content {
+    padding: 0 1rem 1rem;
+  }
+  
+  .labelSection {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .sectionHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .expandButton {
+    align-self: flex-end;
+  }
+  
+  .actions {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-end;
+  }
+}
